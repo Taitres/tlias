@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -30,6 +31,22 @@ public class EmpServiceImpl implements EmpService {
     @Override
     public void deleteEmpById(List<Integer> ids) {
         empMapper.deleteEmpById(ids);
+    }
+
+    @Override
+    public void addEmp(Emp emp) {
+        empMapper.addEmp(emp);
+    }
+
+    @Override
+    public Emp getEmpById(Integer id) {
+        return empMapper.getEmpById(id);
+    }
+
+    @Override
+    public void updateEmpById(Emp emp) {
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.updateEmpById(emp);
     }
 
 }

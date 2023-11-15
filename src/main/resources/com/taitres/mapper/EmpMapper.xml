@@ -5,8 +5,7 @@
 <mapper namespace="com.taitres.mapper.EmpMapper">
 
 
-
-<!--    条件查询-->
+    <!--    条件查询-->
     <select id="getEmp" resultType="com.taitres.pojo.Emp">
         select * from emp
         <where>
@@ -24,12 +23,58 @@
     </select>
 
 
-<!--    批量删除-->
+    <!--    批量删除-->
     <delete id="deleteEmpById">
         delete from emp where id in
         <foreach collection="ids" item="id" open="(" close=")" separator=",">
             #{id}
         </foreach>
     </delete>
+
+    <!--    添加员工-->
+    <insert id="addEmp" parameterType="com.taitres.pojo.Emp">
+        insert into Emp (username, name, gender, image, entrydate, dept_id, job, create_time, update_time)
+        values (#{username}, #{name}, #{gender}, #{image}, #{entrydate}, #{deptId}, #{job}, now(), now())
+    </insert>
+
+    <!--    根据id查询-->
+    <select id="getEmpById" resultType="com.taitres.pojo.Emp">
+        select * from emp where id = #{id}
+    </select>
+
+    <!--    修改员工信息-->
+    <update id="updateEmpById" parameterType="com.taitres.pojo.Emp">
+        update emp
+        <set>
+            <if test="username!=null and username!=''">
+                username = #{username},
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="gender!=null">
+                gender = #{gender},
+            </if>
+            <if test="image!=null">
+                image = #{image},
+            </if>
+            <if test="entrydate!=null">
+                entrydate = #{entrydate},
+            </if>
+            <if test="deptId!=null">
+                dept_id = #{deptId},
+            </if>
+            <if test="job!=null">
+                job = #{job},
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
 </mapper>

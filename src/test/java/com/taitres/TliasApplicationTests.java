@@ -10,4 +10,12 @@ class TliasApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void testUuid() {
+        for (int i = 0; i < 10; i++){
+            System.out.println("uuid = " + java.util.UUID.randomUUID().toString());
+        }
+
+    }
+
 }

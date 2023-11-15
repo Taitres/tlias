@@ -13,4 +13,9 @@ public interface EmpService {
 
     void deleteEmpById(List<Integer> ids);
 
+    void addEmp(Emp emp);
+
+    Emp getEmpById(Integer id);
+
+    void updateEmpById(Emp emp);
 }

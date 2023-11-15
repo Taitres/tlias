@@ -22,5 +22,20 @@ public interface EmpMapper {
      * @param id
      */
     void deleteEmpById(List<Integer> ids);
-
+    /**
+     * 添加员工
+     * @param emp
+     */
+    void addEmp(Emp emp);
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
+    Emp getEmpById(Integer id);
+    /**
+     * 根据id修改员工
+     * @param emp
+     */
+    void updateEmpById(Emp emp);
 }

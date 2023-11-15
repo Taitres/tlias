@@ -1,6 +1,7 @@
 package com.taitres.controller;
 
 
+import com.taitres.pojo.Emp;
 import com.taitres.pojo.PageBean;
 import com.taitres.pojo.Result;
 import com.taitres.service.EmpService;
@@ -37,6 +38,30 @@ public class EmpController {
     public Result deleteEmpById(@PathVariable("ids") List<Integer> ids){
         log.info("根据id删除员工,参数：{}",ids);
         empService.deleteEmpById(ids);
+        return Result.success();
+    }
+
+    //添加员工
+    @PostMapping
+    public Result addEmp(@RequestBody Emp emp){
+        log.info("添加员工,参数：{}",emp);
+        empService.addEmp(emp);
+        return Result.success();
+    }
+
+    //根据id查询员工
+    @GetMapping("/{id}")
+    public Result getEmpById(@PathVariable Integer id){
+        log.info("根据id查询员工,参数：{}",id);
+        Emp emp = empService.getEmpById(id);
+        return Result.success(emp);
+    }
+
+    //根据id修改员工
+    @PutMapping
+    public Result updateEmpById(@RequestBody Emp emp){
+        log.info("根据id修改员工,参数：{}",emp);
+        empService.updateEmpById(emp);
         return Result.success();
     }
 
