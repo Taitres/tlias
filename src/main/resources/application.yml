@@ -19,7 +19,7 @@ mybatis:
 #阿里云OSS
 aliyun:
   oss:
-    endpoint: https://oss-cn-beijing.aliyuncs.com
-    accessKeyId: LTAI5tLmyWsR8WvfgedREkBs
-    accessKeySecret:  YMDs4VIuLd4Zkh3dR8VYq9U73CitEP
-    bucketName: tlias-taitres
+    endpoint: http://oss-cn-beijing.aliyuncs.com
+    accessKeyId: yourAccessKeyId
+    accessKeySecret:  yourAccessKeySecret
+    bucketName: yourBucketName
