@@ -77,4 +77,9 @@
         where id = #{id}
     </update>
 
+<!--    登录时查询-->
+    <select id="getEmpByUsernameAndPassword" resultType="com.taitres.pojo.Emp">
+        select * from emp where username = #{username} and password = #{password}
+    </select>
+
 </mapper>

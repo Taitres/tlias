@@ -1,7 +1,6 @@
 package com.taitres.mapper;
 
 import com.taitres.pojo.Emp;
-import com.taitres.pojo.PageBean;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.time.LocalDate;
@@ -18,8 +17,8 @@ public interface EmpMapper {
     List<Emp> getEmp(String name, Short gender, LocalDate begin, LocalDate end);
 
     /**
-     * 根据id删除员工
-     * @param id
+     * 根据id列表删除员工
+     * @param ids
      */
     void deleteEmpById(List<Integer> ids);
     /**
@@ -38,4 +37,13 @@ public interface EmpMapper {
      * @param emp
      */
     void updateEmpById(Emp emp);
+
+    /**
+     * 登录时根据用户名和密码查询员工
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    Emp getEmpByUsernameAndPassword(String username, String password);
 }

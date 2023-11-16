@@ -49,4 +49,13 @@ public class EmpServiceImpl implements EmpService {
         empMapper.updateEmpById(emp);
     }
 
+    @Override
+    public Emp login(Emp emp) {
+        String username = emp.getUsername();
+        String password = emp.getPassword();
+        return empMapper.getEmpByUsernameAndPassword(username,password);
+    }
+
+
+
 }
