@@ -1,6 +1,9 @@
 package com.taitres;
 
 import com.taitres.controller.DeptController;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -36,6 +39,22 @@ class TliasApplicationTests {
         DeptController bean3 = applicationContext.getBean("deptController", DeptController.class);
         System.out.println(bean3);
 
+    }
+
+
+    //第三方bean的管理
+    @Autowired
+    private SAXReader saxReader;
+    @Test
+    public void testThirdBean() throws Exception {
+
+
+        Document document = saxReader.read(this.getClass().getClassLoader().getResource("1.xml"));
+        Element rootElement = document.getRootElement();
+        String name = rootElement.element("name").getText();
+        String age = rootElement.element("age").getText();
+
+        System.out.println(name + " : " + age);
     }
 
 
