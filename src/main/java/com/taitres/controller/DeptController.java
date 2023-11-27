@@ -1,16 +1,19 @@
 package com.taitres.controller;
 
+import com.taitres.anno.Log;
 import com.taitres.pojo.Dept;
 import com.taitres.pojo.Result;
 import com.taitres.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
+//@Scope("prototype") //多例
 @RestController
 @RequestMapping("/depts")
 public class DeptController {
@@ -25,6 +28,7 @@ public class DeptController {
         return Result.success(deptService.getDept());
     }
 
+    @Log
     @DeleteMapping("/{id}")
     public Result deleteDeptById(@PathVariable Integer id){
         log.info("根据id删除部门 {}",id);
@@ -32,6 +36,7 @@ public class DeptController {
         return Result.success();
     }
 
+    @Log
     @PostMapping
     public Result addDept(@RequestBody Dept dept){
         log.info("添加部门 {}",dept.getName());

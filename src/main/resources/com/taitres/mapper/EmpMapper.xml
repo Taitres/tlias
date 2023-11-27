@@ -82,4 +82,9 @@
         select * from emp where username = #{username} and password = #{password}
     </select>
 
+<!--    根据部门id删除员工-->
+    <delete id="deleteEmpByDeptId">
+        delete from emp where dept_id = #{deptId}
+    </delete>
+
 </mapper>

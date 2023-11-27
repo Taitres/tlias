@@ -56,6 +56,4 @@ public class EmpServiceImpl implements EmpService {
         return empMapper.getEmpByUsernameAndPassword(username,password);
     }
 
-
-
 }

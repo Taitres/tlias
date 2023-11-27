@@ -46,4 +46,10 @@ public interface EmpMapper {
      * @return
      */
     Emp getEmpByUsernameAndPassword(String username, String password);
+
+    /**
+     * 根据部门id删除员工
+     * @param deptId
+     */
+    void deleteEmpByDeptId(Integer deptId);
 }
