@@ -6,11 +6,9 @@ import com.taitres.pojo.Result;
 import com.taitres.service.DeptService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Slf4j
 //@Scope("prototype") //多例
